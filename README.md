@@ -2,6 +2,15 @@
 
 Run this with pycharm. Just run and send a request with the browser, curl or Postman.
 
+### Running, environmental variable and port
+`FLASK_APP` variable is defined in `.env` file. It will load automatically.
+
+To run flask server on port 80 (default is 5000):
+```
+sudo pipenv run flask -p 80
+```
+`sudo` is required to run an application on port 80.
+
 ## Example request received
 
 Empty request:
