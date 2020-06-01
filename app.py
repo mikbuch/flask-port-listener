@@ -1,6 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import sys
 app = Flask(__name__)
+
+requests = []
 
 @app.route('/')
 def hello_world():
@@ -12,8 +14,10 @@ def hello_world():
     template += '\nArgs:\n%s' % request.args
     template += '\n--------------------\n'
 
+    requests.append(template)
+
     # Print to terminal
     print(template, file=sys.stderr)
 
     # Show in the browser
-    return template
+    return render_template('index.html', requests=requests)
