@@ -22,4 +22,4 @@ def hello_world():
     print(request_info, file=sys.stderr)
 
     # Show in the browser
-    return render_template('index.html', request_info=request_info.split('\n'))
+    return render_template("index.html", request_info=request_info.split('\n'))
