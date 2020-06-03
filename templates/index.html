@@ -11,8 +11,13 @@
 
 <div class="container" id="content">
     <div class="row">
-        <h3>Current time and date:</h3>
-        <div id="time_date">
+        <h3>Request</h3>
+        <div>
+            <p>
+                {% for line in request_info %}
+                    <p>{{line}}</p>
+                {% endfor %}
+            </p>
         </div>
     </div>
 </div>

@@ -1,23 +1,25 @@
+from datetime import datetime
 from flask import Flask, request, render_template
 import sys
 app = Flask(__name__)
 
-requests = []
-
 @app.route('/')
 def hello_world():
 
-    # Get the content of the request
-    template = '\n--------------------'
-    template += '\nI just got a request!'
-    template += '\nRequest:\n%s' % request
-    template += '\nArgs:\n%s' % request.args
-    template += '\n--------------------\n'
+    # Time when the server got the request
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
 
-    requests.append(template)
+    # Get the content of the request
+    request_info = '\n--------------------'
+    request_info += '\nI just got a request!'
+    request_info += '\n%s' % current_time
+    request_info += '\nRequest:\n%s' % request
+    request_info += '\nArgs:\n%s' % request.args
+    request_info += '\n--------------------\n'
 
     # Print to terminal
-    print(template, file=sys.stderr)
+    print(request_info, file=sys.stderr)
 
     # Show in the browser
-    return render_template('index.html', requests=requests)
+    return render_template('index.html', request_info=request_info.split('\n'))
