@@ -11,6 +11,14 @@ sudo pipenv run flask -p 80
 ```
 `sudo` is required to run an application on port 80.
 
+Alternatively:
+```
+sudo /home/$USER/.local/share/virtualenvs/flask_minimal_example-$XYZ-$ABCDE/bin/flask run --host=0.0.0.0 -p 80
+```
+Where:
+  * `$USER` is your username (where virtual environment was created)
+  * `$XYZ` and `$ABCDE` are hash codes for the directory of the virtual environment
+
 ## Example request received
 
 Empty request:
