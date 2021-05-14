@@ -1,9 +1,16 @@
 # Flask minimal example
 
-## Running with PyCharm
-Run this project in Pycharm as Flask application. Then send a request with the browser, curl or Postman.
-
 ## Running on a remote server
+
+### One-line command (new installation)
+
+```bash
+git clone https://github.com/mikbuch/flask_minimal_example && cd flask_minimal_example && sudo apt-get install python3-pip && sudo pip3 install pipenv && pipenv install --python $(which python3) && sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
+```
+
+## Re-running the application
+
+On the server when the application was previously installed you can just run flask application.
 
 If your virtual environment is already installed and you are just (re)starting the server (Flask application) use the below command:
 ```
@@ -18,7 +25,7 @@ Where:
   * `$USER` is your username (where virtual environment was created)
   * `$XYZ` and `$ABCDE` are hash codes for the directory of the virtual environment
   
-## Installation
+## Installation (step-by-step)
 
 First clone this repository to the remote server:
 ```
@@ -85,3 +92,8 @@ Args:
 ImmutableMultiDict([('some_param', '3')])
 --------------------
 ```
+
+## Development
+
+### Running with PyCharm
+Run this project in Pycharm as Flask application. Then, to send a request with the browser, use curl or Postman.
