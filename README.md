@@ -5,7 +5,22 @@
 ### One-line command (new installation)
 
 ```bash
-git clone https://github.com/mikbuch/flask_minimal_example && cd flask_minimal_example && sudo apt-get install python3-pip && sudo pip3 install pipenv && pipenv install --python $(which python3) && sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
+git clone https://github.com/mikbuch/flask_minimal_example && \
+cd flask_minimal_example && \
+sudo apt-get install python3-pip && \
+sudo pip3 install pipenv && \
+pipenv install --python $(which python3) && \
+sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
+```
+
+#### Cleanup
+
+In order to remove the application:
+
+```bash
+pipenv --rm && \
+cd .. && \
+rm -rf flask_minimal_example
 ```
 
 ## Re-running the application
