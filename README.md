@@ -13,6 +13,10 @@ pipenv install --python $(which python3) && \
 sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
 ```
 
+After running the appliction on the server, open the browser and type the IP of your server. You should see the output such as:
+
+![image](https://user-images.githubusercontent.com/10733514/118406493-8b0cbd80-b67c-11eb-9a90-7ce6c530bb65.png)
+
 #### Cleanup
 
 In order to remove the application:
