@@ -27,6 +27,8 @@ cd .. && \
 rm -rf flask_minimal_example
 ```
 
+Note: sometimes there can be some `root` files created under venv dir (`/home/$USER/.local/share/virtualenvs/flask_minimal_example-$XYZ-$ABCDE/`). In such cases you have to remove this venv directory manually with `sudo` command.
+
 ## Re-running the application
 
 On the server when the application was previously installed you can just run flask application.
