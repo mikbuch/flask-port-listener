@@ -6,11 +6,11 @@
 
 ```bash
 git clone https://github.com/mikbuch/flask_minimal_example && \
-cd flask_minimal_example && \
-sudo apt-get install python3-pip && \
-sudo pip3 install pipenv && \
-pipenv install --python $(which python3) && \
-sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
+  cd flask_minimal_example && \
+  sudo apt-get install python3-pip && \
+  sudo pip3 install pipenv && \
+  pipenv install --python $(which python3) && \
+  sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
 ```
 
 After running the appliction on the server, open the browser and type the IP of your server. You should see the output such as:
