@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  flask-minimal-mb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PYTHONPATH: .
+    ports:
+      - '8080:5000'
