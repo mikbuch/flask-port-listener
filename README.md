@@ -41,6 +41,17 @@ cd /tmp &&
   docker-compose up
 ```
 
+#### Docker cleanup
+
+In order to remove the created docker image you have to:
+ 1. Get container's ID (`docker container ls -a`)
+ 2. Stop the container: `docker stop <<container_id, e.g., '20405ff628c1'>>` 
+ 3. Remove by ID: `docker rm <<container_id, e.g., '20405ff628c1'>>`
+ 4. Get image name: `docker images`
+ 5. Remove the image (by name or ID), e.g.: `docker rmi flask_minimal_example_flask-minimal-mb`
+
+Optionally, if you are not using it, remove the `ubuntu` image as well. Using the same workflow as above.
+
 
 ### Running directly on the system
 
