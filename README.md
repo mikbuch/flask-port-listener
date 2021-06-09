@@ -1,8 +1,40 @@
 # Flask minimal example
 
+A simple tool for testing requests and ports locally, as well as on a remote server.
+
 ## Running on a remote server
 
-### One-line command (new installation)
+There are two cases of running _flask minimal example_ covered here:
+ 1. Using docker-compose (via `Dockerfile`)
+ 2. Running it directly with `bash` command line on a given server (directly on the server's system)
+
+### Running with docker-compose
+
+Make sure that you have `docker` and `docker-compose` installed on your server.
+
+Modify the contents of the `docker-compose.yml` file for defining the port you would like to use. __Note!__ For using port `80` you need `sudo` rights -- this option was not tested yet with `docker-compose` case.
+
+```yaml
+    ports:
+      - '8080:5000'
+```
+
+where:
+
+ * `8080` - is the port on which your application will be accessible outside of the `docker` container
+ * `5000` - is the port that is used by the `Flask` application inside the `docker` container
+
+Use the following commands to run the dockerized `Flask` application:
+
+```bash
+docker-compose up
+```
+
+### Running directly on the system
+
+With this approach running the application on port `80` has already been tested.
+
+#### One-line command (installing & running for the first time)
 
 ```bash
 git clone https://github.com/mikbuch/flask_minimal_example && \
