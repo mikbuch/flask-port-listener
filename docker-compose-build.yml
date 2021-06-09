@@ -1,7 +1,9 @@
 version: '3.8'
 services:
-  flask-app:
-    image: mikbuch/flask-port-listener
+  flask-listener-mb:
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       PYTHONPATH: .
     ports:
