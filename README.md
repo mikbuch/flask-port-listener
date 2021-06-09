@@ -2,6 +2,29 @@
 
 A simple tool for testing requests and ports locally, as well as on a remote server.
 
+If you wish just to use the application use the following command:
+
+```bash
+docker run -p 0.0.0.0:8080:5000/tcp mikbuch/flask-port-listener:latest
+```
+
+where:
+ * `8080` is the port exposed outside of the docker image (on a host machine)
+ * `5000` is the TCP port inside the container on which the application is running
+
+If you want to test different port than `8080` just replace it with the port you wish to test.
+
+### Cleanup
+
+First remove the container by image name, and then delete the image itself:
+
+```bash
+docker rm $(docker ps -a | grep 'mikbuch/flask-port-listener' | awk '{ print $1 }')
+docker rmi mikbuch/flask-port-listener
+```
+
+Source of the idea for the `grep` command: https://stackoverflow.com/a/54099479/8877692
+
 ## Running the application
 
 There are three cases of running _flask port listener_ covered here:
