@@ -180,3 +180,8 @@ ImmutableMultiDict([('some_param', '3')])
 
 ### Running with PyCharm
 Run this project in Pycharm as Flask application. Then, to send a request with the browser, use curl or Postman.
+
+## Background
+
+There is a need for a convenient way of checking which ports are opened on a Linux server. See, e.g.:
+ * https://unix.stackexchange.com/questions/24680/how-to-listen-to-all-ports-udp-and-tcp-or-make-them-all-appear-open-in-debian
