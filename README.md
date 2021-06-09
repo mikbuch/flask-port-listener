@@ -30,6 +30,18 @@ Use the following commands to run the dockerized `Flask` application:
 docker-compose up
 ```
 
+#### One-line command
+
+In order to run the application temporarily use the following 'one-line' commnad:
+
+```bash
+cd /tmp &&
+  git clone https://github.com/mikbuch/flask_minimal_example.git &&
+  cd flask_minimal_example &&
+  docker-compose up
+```
+
+
 ### Running directly on the system
 
 With this approach running the application on port `80` has already been tested.
