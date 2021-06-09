@@ -2,11 +2,14 @@
 
 A simple tool for testing requests and ports locally, as well as on a remote server.
 
-## Running on a remote server
+## Running the application
 
-There are two cases of running _flask port listener_ covered here:
- 1. Using docker-compose (via `Dockerfile`)
- 2. Running it directly with `bash` command line on a given server (directly on the server's system)
+There are three cases of running _flask port listener_ covered here:
+ 1. Using docker-compose (via `Dockerfile`) `[server]`
+ 2. With virtual environment, using `pipenv` and command line interface `[server]`
+ 3. With virtual environment, using `PyCharm`'s `venv` and/or command line interface `[locally]`
+
+In brackets `[]` there are suggested ways of running the application for a given case. Of course, you can, e.g., run the application on a server with `venv` or run it locally with `docker-compose` but here I present the optimal way of running (and/or developing) the application -- I don't cover all possible options.
 
 ### Running with docker-compose
 
@@ -60,7 +63,7 @@ In order to remove the created docker image manually using `docker` command:
 Optionally, if you are not using it, remove the `ubuntu` image as well. Using the same workflow as above.
 
 
-### Running directly on the system
+### Running in a virtual environment using `pipenv`
 
 With this approach running the application on port `80` has already been tested.
 
@@ -91,7 +94,7 @@ rm -rf flask-port-listener
 
 Note: sometimes there can be some `root` files created under venv dir (`/home/$USER/.local/share/virtualenvs/flask-port-listener-$XYZ-$ABCDE/`). In such cases you have to remove this venv directory manually with `sudo` command.
 
-## Re-running the application
+#### Re-running the application
 
 On the server when the application was previously installed you can just run flask application.
 
@@ -108,7 +111,7 @@ Where:
   * `$USER` is your username (where virtual environment was created)
   * `$XYZ` and `$ABCDE` are hash codes for the directory of the virtual environment
   
-## Installation (step-by-step)
+#### Step-by-step installation with `pipenv`
 
 First clone this repository to the remote server:
 ```
@@ -146,7 +149,23 @@ Where:
   * `$USER` is your username (where virtual environment was created)
   * `$XYZ` and `$ABCDE` are hash codes for the directory of the virtual environment
 
-## Example request received
+### Running in a `venv` using PyCharm
+
+A virtual environment with `venv` should be configured as part of this repository all you have to do is click "Run" -- the configuration: `Flask (app.py)`.
+
+Alternatively, you can open a terminal in PyCharm. You should see something similar to this:
+
+```bash
+(venv) ➜  flask-port-listener git:(master) ✗ 
+```
+
+Then just run a `flask` command, e.g.:
+
+```bash
+flask run --host=0.0.0.0 -p 80
+```
+
+## An example request received
 
 An empty request:
 ```
