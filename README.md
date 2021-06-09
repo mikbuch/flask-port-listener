@@ -197,8 +197,29 @@ ImmutableMultiDict([('some_param', '3')])
 
 ## Development
 
+### Building a docker image manually
+
+If you wish to add your docker image to publish it on DockerHub you wish to have a nice name of your image, e.g., `flask-port-listener` instead of `flask-port-listener_flask-listener-mb` (when running the build with the `docker-compose` command). You then have two options. First, rename `flask-port-listener_flask-listener-mb` manually, and the second: build the image using:
+
+```bash
+docker build . --tag 'mikbuch/flask-port-listener:latest'
+```
+
+Then you have to login to your DockerHub account:
+```bash
+docker login
+```
+
+Finally, push your image using:
+
+```bash
+docker push mikbuch/flask-port-listener:latest
+```
+
+
+
 ### Running with PyCharm
-Run this project in Pycharm as Flask application. Then, to send a request with the browser, use curl or Postman.
+Run this project in Pycharm as Flask application. Then, to send a request with the browser, use `curl` or `Postman`.
 
 ## Background
 
