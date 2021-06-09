@@ -1,10 +1,10 @@
-# Flask minimal example
+# Flask port listener
 
 A simple tool for testing requests and ports locally, as well as on a remote server.
 
 ## Running on a remote server
 
-There are two cases of running _flask minimal example_ covered here:
+There are two cases of running _flask port listener_ covered here:
  1. Using docker-compose (via `Dockerfile`)
  2. Running it directly with `bash` command line on a given server (directly on the server's system)
 
@@ -36,8 +36,8 @@ In order to run the application temporarily use the following 'one-line' commnad
 
 ```bash
 cd /tmp &&
-  git clone https://github.com/mikbuch/flask_minimal_example.git &&
-  cd flask_minimal_example &&
+  git clone https://github.com/mikbuch/flask-port-listener.git &&
+  cd flask-port-listener &&
   docker-compose up
 ```
 
@@ -47,7 +47,7 @@ Using docker-compose:
 
 ```bash
 docker-compose down
-docker rmi flask_minimal_example_flask-minimal-mb
+docker rmi flask-port-listener_flask-listener-mb
 ```
 
 In order to remove the created docker image manually using `docker` command:
@@ -55,7 +55,7 @@ In order to remove the created docker image manually using `docker` command:
  2. Stop the container: `docker stop <<container_id, e.g., '20405ff628c1'>>` 
  3. Remove by ID: `docker rm <<container_id, e.g., '20405ff628c1'>>`
  4. Get image name: `docker images`
- 5. Remove the image (by name or ID), e.g.: `docker rmi flask_minimal_example_flask-minimal-mb`
+ 5. Remove the image (by name or ID), e.g.: `docker rmi flask-port-listener_flask-listener-mb`
 
 Optionally, if you are not using it, remove the `ubuntu` image as well. Using the same workflow as above.
 
@@ -67,8 +67,8 @@ With this approach running the application on port `80` has already been tested.
 #### One-line command (installing & running for the first time)
 
 ```bash
-git clone https://github.com/mikbuch/flask_minimal_example && \
-  cd flask_minimal_example && \
+git clone https://github.com/mikbuch/flask-port-listener && \
+  cd flask-port-listener && \
   sudo apt-get install python3-pip && \
   sudo pip3 install pipenv && \
   pipenv install --python $(which python3) && \
@@ -86,10 +86,10 @@ In order to remove the application:
 ```bash
 pipenv --rm && \
 cd .. && \
-rm -rf flask_minimal_example
+rm -rf flask-port-listener
 ```
 
-Note: sometimes there can be some `root` files created under venv dir (`/home/$USER/.local/share/virtualenvs/flask_minimal_example-$XYZ-$ABCDE/`). In such cases you have to remove this venv directory manually with `sudo` command.
+Note: sometimes there can be some `root` files created under venv dir (`/home/$USER/.local/share/virtualenvs/flask-port-listener-$XYZ-$ABCDE/`). In such cases you have to remove this venv directory manually with `sudo` command.
 
 ## Re-running the application
 
@@ -102,7 +102,7 @@ sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
 
 Explanation (more explicit approach):
 ```
-sudo /home/$USER/.local/share/virtualenvs/flask_minimal_example-$XYZ-$ABCDE/bin/flask run --host=0.0.0.0 -p 80
+sudo /home/$USER/.local/share/virtualenvs/flask-port-listener-$XYZ-$ABCDE/bin/flask run --host=0.0.0.0 -p 80
 ```
 Where:
   * `$USER` is your username (where virtual environment was created)
@@ -112,8 +112,8 @@ Where:
 
 First clone this repository to the remote server:
 ```
-git clone https://github.com/mikbuch/flask_minimal_example
-cd flask_minimal_example
+git clone https://github.com/mikbuch/flask-port-listener
+cd flask-port-listener
 ```
 
 You'll need `pipenv` to run this server in virtual environment.
@@ -140,7 +140,7 @@ sudo $(pipenv --venv)/bin/flask run --host=0.0.0.0 -p 80
 
 Explanation (more explicit approach):
 ```
-sudo /home/$USER/.local/share/virtualenvs/flask_minimal_example-$XYZ-$ABCDE/bin/flask run --host=0.0.0.0 -p 80
+sudo /home/$USER/.local/share/virtualenvs/flask-port-listener-$XYZ-$ABCDE/bin/flask run --host=0.0.0.0 -p 80
 ```
 Where:
   * `$USER` is your username (where virtual environment was created)
