@@ -4,7 +4,7 @@ import sys
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def handle_request():
 
     # Time when the server got the request
     now = datetime.now()
@@ -12,7 +12,7 @@ def hello_world():
 
     # Get the content of the request
     request_info = '\n--------------------'
-    request_info += '\nI just got a request!'
+    request_info += '\nI got a request!'
     request_info += '\n%s' % current_time
     request_info += '\nRequest:\n%s' % request
     request_info += '\nArgs:\n%s' % request.args
