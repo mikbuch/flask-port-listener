@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "44520739-c63b-47b6-b73c-c93348e0ee6b",
+		"name": "Flask port listener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST JSON request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"version\": \"0.0.1\",\n    \"featureInfo\": \"Just testing\"\n}"
+				},
+				"url": {
+					"raw": "0.0.0.0:5000",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		}
+	]
+}

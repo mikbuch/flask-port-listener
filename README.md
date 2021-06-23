@@ -240,9 +240,41 @@ docker push mikbuch/flask-port-listener:latest
 ```
 
 
-
 ### Running with PyCharm
-Run this project in Pycharm as Flask application. Then, to send a request with the browser, use `curl` or `Postman`.
+Run this project in Pycharm as a Flask application.
+
+## Testing the requests
+
+### GET requests
+
+In order to send a GET request you can use one of the following: the browser, `curl` Linux command, or [Postman](https://www.postman.com).
+
+### POST requests
+
+The recommended way for testing POST requests is using the [Postman](https://www.postman.com). The configuration is available below, visible in a screenshot, or as a Postman Collection in `.postman/Flask port listener.postman_collection.json`.
+
+![A screenshot of Postman configuration](.postman/Postman_POST-JSON_request.png)
+
+Optionally, you can use (e.g., copy-paste) the below information directly to the Postman:
+
+Request type:
+```
+POST
+```
+
+Address:
+```JSON
+0.0.0.0:5000
+```
+
+Body:
+```JSON
+{
+    "name": "test",
+    "version": "0.0.1",
+    "featureInfo": "Just testing"
+}
+```
 
 ## Background
 
@@ -251,4 +283,4 @@ There is a need for a convenient way of checking which ports are opened on a Lin
 
 ## Sources
 
-Source of the graphic in the cover photo at GitHub repo (the graphic was adapted by MB): https://www.flickr.com/photos/ky_olsen/3133347219
+Source of the graphic in the cover photo at GitHub repository (the CC-BY graphic was adapted by MB): https://www.flickr.com/photos/ky_olsen/3133347219
