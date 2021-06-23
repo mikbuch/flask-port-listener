@@ -188,11 +188,11 @@ Then just run a `flask` command, e.g.:
 flask run --host=0.0.0.0 -p 80
 ```
 
-## An example request received
+## An example response received
 
-An empty request:
+An empty request (what will you see in the terminal):
 ```
-127.0.0.1 - - [20/Apr/2020 10:12:44] "GET /?some_param=3 HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2020 10:12:44] "GET / HTTP/1.1" 200 -
 
 --------------------
 I just got request!
@@ -201,6 +201,8 @@ Request:
 <Request 'http://127.0.0.1:5000/' [GET]>
 Args:
 ImmutableMultiDict([])
+Body:
+b''
 --------------------
 ```
 
@@ -215,6 +217,24 @@ Request:
 <Request 'http://127.0.0.1:5000/?some_param=3' [GET]>
 Args:
 ImmutableMultiDict([('some_param', '3')])
+Body:
+b''
+--------------------
+```
+
+Example `POST` response received:
+```
+172.17.0.1 - - [23/Jun/2021 11:16:29] "GET / HTTP/1.1" 200 -
+
+--------------------
+I just got a request!
+11:17:17
+Request:
+<Request 'http://0.0.0.0:8080/' [POST]>
+Args:
+ImmutableMultiDict([])
+Body:
+b'{\n    "name": "test",\n    "version": "0.0.1",\n    "featureInfo": "Just testing"\n}'
 --------------------
 ```
 
@@ -224,24 +244,59 @@ ImmutableMultiDict([('some_param', '3')])
 
 If you wish to add your docker image to publish it on DockerHub you wish to have a nice name of your image, e.g., `flask-port-listener` instead of `flask-port-listener_flask-listener-mb` (when running the build with the `docker-compose` command). You then have two options. First, rename `flask-port-listener_flask-listener-mb` manually, and the second: build the image using:
 
+Tag naming convention: the newest numerical version and the `latest` tag are the same.
+
+Below are the steps to build and publish (push) docker `flask-port-listener` docker image.:
+
+**Step 1.** See what is the current version number of [the docker image on the DockerHub](https://hub.docker.com/r/mikbuch/flask-port-listener).
+
+**Step 2.** Create a variable with version number, e.g.:
+```bash
+export tag_version=3
+```
+
+**Step 3.** Build the latest image 
+
+Build the latest version of the image:
 ```bash
 docker build . --tag 'mikbuch/flask-port-listener:latest'
 ```
 
-Then you have to login to your DockerHub account:
+**Step 4.** Test the build version locally
+
+In order to test the newly build docker image use the following command:
+```bash
+docker run -p 0.0.0.0:8080:5000/tcp mikbuch/flask-port-listener:latest
+```
+
+Then test the requests as described in the below section: `Testing the requests` (note: remember to use the correct port, e.g., `8080` instead of `5000`).
+
+**Step 5.** Add numerical tag name
+
+Then create a numerical version (of the tag name) as well:
+```bash
+docker tag mikbuch/flask-port-listener:latest mikbuch/flask-port-listener:$tag_version
+```
+
+**Step 6.** Login to DockerHub
+
+Now you have to login to your DockerHub account:
 ```bash
 docker login
 ```
 
-Finally, push your image using:
+**Step 7.** Push the images
+
+Finally, push your images using:
 
 ```bash
 docker push mikbuch/flask-port-listener:latest
+docker push mikbuch/flask-port-listener:$tag_version
 ```
 
 
 ### Running with PyCharm
-Run this project in Pycharm as a Flask application.
+Run this project in Pycharm as a Flask application. The `venv` configuration for PyCharm is included in this repository.
 
 ## Testing the requests
 
