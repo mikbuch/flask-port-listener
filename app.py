@@ -1,8 +1,10 @@
 from datetime import datetime
 from flask import Flask, request, render_template
+from flask_cors import CORS
 import sys
 
 app = Flask(__name__)
+cors = CORS(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
